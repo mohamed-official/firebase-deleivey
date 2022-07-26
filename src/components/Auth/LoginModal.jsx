@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { Transition, Dialog } from "@headlessui/react";
-import { FcGoogle } from "react-icons/fc";
+import LoginWithGoogle from "./LoginWithGoogle";
+import LoginWithGithub from "./LoginWithGithub";
 
 function LoginModal({ isOpen, setIsOpen }) {
   return (
@@ -40,23 +41,8 @@ function LoginModal({ isOpen, setIsOpen }) {
                 >
                   Login
                 </Dialog.Title>
-                <div className="mt-4 mx-auto border text-white border-blue-700 w-8/12">
-                  <button className="flex items-center w-full">
-                    <FcGoogle size={25} className="w-2/12" />
-                    <span className="bg-blue-600 hover:bg-blue-500 w-10/12 p-3 transition-all duration-150">
-                      Login With Google
-                    </span>
-                  </button>
-                </div>
-
-                <div className="mt-4 mx-auto border text-white border-blue-700 w-8/12">
-                  <button className="flex items-center w-full">
-                    <FcGoogle size={25} className="w-2/12" />
-                    <span className="bg-blue-600 hover:bg-blue-500 w-10/12 p-3 transition-all duration-150">
-                      Login With Github
-                    </span>
-                  </button>
-                </div>
+                <LoginWithGoogle />
+                <LoginWithGithub />
               </Dialog.Panel>
             </Transition.Child>
           </div>
