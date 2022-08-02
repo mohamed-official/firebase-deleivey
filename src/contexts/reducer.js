@@ -1,5 +1,6 @@
 export const actionType = {
   SET_USER: "SET_USER",
+  SET_PRODUCTS: "SET_PRODUCTS",
 };
 
 const reducer = (state, action) => {
@@ -9,7 +10,11 @@ const reducer = (state, action) => {
         ...state,
         user: action.user,
       };
-
+    case actionType.SET_PRODUCTS:
+      return {
+        ...state,
+        products: action.products,
+      };
     default:
       return state;
   }

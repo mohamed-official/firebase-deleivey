@@ -1,6 +1,6 @@
 import { HiShoppingCart } from "react-icons/hi";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../images/logo.png";
 import Avatar from "../../images/avatar.png";
 import { Menu } from "@headlessui/react";
@@ -15,14 +15,15 @@ function Navbar() {
   const [loginModalOpen, setLoginModalOpen] = useState(false);
 
   const [{ user }, dispatch] = useStateValue();
+  const navigate = useNavigate();
 
   const logout = () => {
     localStorage.removeItem("user");
-
     dispatch({
       type: actionType.SET_USER,
       user: null,
     });
+    navigate("/");
   };
 
   return (

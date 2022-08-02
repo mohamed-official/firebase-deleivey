@@ -17,7 +17,6 @@ function LoginWithGoogle() {
       user: providerData[0],
     });
     localStorage.setItem("user", JSON.stringify(providerData[0]));
-    // setIsOpen(false);
   };
 
   return (

@@ -19,3 +19,41 @@ export const heroData = [
     image: Cake,
   },
 ];
+
+export const categories = [
+  {
+    id: 1,
+    name: "Drinks",
+    url: "drinks",
+  },
+  {
+    id: 2,
+    name: "Pizza",
+    url: "pizza",
+  },
+  {
+    id: 3,
+    name: "Fish",
+    url: "fish",
+  },
+  {
+    id: 4,
+    name: "Chicken",
+    url: "chicken",
+  },
+  {
+    id: 5,
+    name: "Rice",
+    url: "rice",
+  },
+  {
+    id: 6,
+    name: "Fruits",
+    url: "fruits",
+  },
+  {
+    id: 7,
+    name: "Desserts",
+    url: "desserts",
+  },
+];
