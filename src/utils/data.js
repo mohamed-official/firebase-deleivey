@@ -38,21 +38,26 @@ export const categories = [
   },
   {
     id: 4,
+    name: "Sea Food",
+    url: "sea-food",
+  },
+  {
+    id: 5,
     name: "Chicken",
     url: "chicken",
   },
   {
-    id: 5,
+    id: 6,
     name: "Rice",
     url: "rice",
   },
   {
-    id: 6,
+    id: 7,
     name: "Fruits",
     url: "fruits",
   },
   {
-    id: 7,
+    id: 8,
     name: "Desserts",
     url: "desserts",
   },

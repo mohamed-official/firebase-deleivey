@@ -149,10 +149,10 @@ function NewItem() {
 
   const clearData = () => {
     setTitle("");
-    setCategory("");
-    setImage(null);
     setCalories("");
     setPrice(0);
+    setImage("");
+    setCategory(category);
   };
 
   const fetchProducts = async () => {

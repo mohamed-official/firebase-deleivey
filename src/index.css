@@ -23,4 +23,8 @@ html, body {
   .desktop-nav-item {
     @apply text-base text-textColor hover:text-navbarColor duration-100 transition-all ease-in-out cursor-pointer
   }
+
+  .menu-section-title {
+    @apply text-2xl mr-auto mb-8 font-semibold capitalize text-gray-600 relative before:absolute before:rounded-lg before:w-full before:h-1 before:-bottom-2 before:left-0 before:bg-gradient-to-tr from-orange-400 to-orange-600 transition-all ease-in-out duration-100
+  }
 }
