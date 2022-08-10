@@ -8,6 +8,8 @@ function FruitSection() {
   const [{ products }, dispatch] = useStateValue();
   const [scrollValue, setScrollValue] = useState(0);
 
+  useEffect(() => {}, [scrollValue]);
+
   return (
     <section className="w-full mt-16">
       <div className="w-full flex items-center justify-between">

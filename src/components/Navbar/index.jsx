@@ -14,7 +14,7 @@ import { actionType } from "../../contexts/reducer";
 function Navbar() {
   const [loginModalOpen, setLoginModalOpen] = useState(false);
 
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user, cartShow, cartItems }, dispatch] = useStateValue();
   const navigate = useNavigate();
 
   const logout = () => {
@@ -24,6 +24,13 @@ function Navbar() {
       user: null,
     });
     navigate("/");
+  };
+
+  const showCart = () => {
+    dispatch({
+      type: actionType.SET_CART_SHOW,
+      cartShow: !cartShow,
+    });
   };
 
   return (
@@ -46,13 +53,15 @@ function Navbar() {
           <li className="desktop-nav-item">Service</li>
         </ul>
         <div className="flex items-center gap-8">
-          <div className="relative flex items-center justify-center">
-            <HiShoppingCart
-              size={30}
-              className="text-textColor cursor-pointer"
-            />
+          <div
+            className="relative flex items-center justify-center cursor-pointer"
+            onClick={() => showCart()}
+          >
+            <HiShoppingCart size={30} className="text-textColor" />
             <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-600 flex items-center justify-center">
-              <p className="text-xs text-white font-semibold">2</p>
+              <p className="text-xs text-white font-semibold">
+                {cartItems && cartItems.length}
+              </p>
             </div>
           </div>
           <div className="relative">
@@ -75,7 +84,11 @@ function Navbar() {
       )}
       {/* Mobile Navbar */}
       <div className="flex items-center justify-between md:hidden w-full h-full">
-        <MobileNav setLoginModalOpen={setLoginModalOpen} logout={logout} />
+        <MobileNav
+          setLoginModalOpen={setLoginModalOpen}
+          logout={logout}
+          showCart={showCart}
+        />
       </div>
     </Menu>
   );

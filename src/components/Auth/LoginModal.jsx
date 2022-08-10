@@ -8,7 +8,7 @@ function LoginModal({ isOpen, setIsOpen }) {
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog
         as="div"
-        className="relative z-10"
+        className="relative z-[1001]"
         onClose={() => setIsOpen(false)}
       >
         <Transition.Child
@@ -20,7 +20,7 @@ function LoginModal({ isOpen, setIsOpen }) {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-black bg-opacity-25" />
+          <div className="fixed inset-0 bg-black bg-opacity-25"></div>
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">

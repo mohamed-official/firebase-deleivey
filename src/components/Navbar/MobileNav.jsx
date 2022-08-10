@@ -6,8 +6,8 @@ import { Menu } from "@headlessui/react";
 import { HiShoppingCart } from "react-icons/hi";
 import MobileAccountDropDown from "./MobileAccountDropDown";
 
-function MobileNav({ setLoginModalOpen, logout }) {
-  const [{ user }] = useStateValue();
+function MobileNav({ setLoginModalOpen, logout, showCart }) {
+  const [{ user, cartItems }] = useStateValue();
 
   return (
     <>
@@ -17,9 +17,15 @@ function MobileNav({ setLoginModalOpen, logout }) {
       </Link>
       <div className="flex items-center gap-8">
         <div className="relative flex items-center justify-center">
-          <HiShoppingCart size={30} className="text-textColor cursor-pointer" />
+          <HiShoppingCart
+            onClick={() => showCart()}
+            size={30}
+            className="text-textColor cursor-pointer"
+          />
           <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-600 flex items-center justify-center">
-            <p className="text-xs text-white font-semibold">2</p>
+            <p className="text-xs text-white font-semibold">
+              {cartItems && cartItems.length}
+            </p>
           </div>
         </div>
         <div className="relative">

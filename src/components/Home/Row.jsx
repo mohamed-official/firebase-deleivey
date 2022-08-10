@@ -1,14 +1,31 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { HiShoppingCart } from "react-icons/hi";
 import { motion } from "framer-motion";
 import Loader from "../Loader";
+import { useStateValue } from "../../contexts/StateProvider";
+import { actionType } from "../../contexts/reducer";
 
 function Row({ flag, data, scrollValue }) {
   const RowRef = useRef();
 
+  const [items, setItems] = useState([]);
+  const [{ cartItems }, dispatch] = useStateValue();
+
+  const addToCart = () => {
+    dispatch({
+      type: actionType.SET_CART_ITEMS,
+      cartItems: items,
+    });
+    localStorage.setItem("cartItems", JSON.stringify(items));
+  };
+
   useEffect(() => {
     RowRef.current.scrollLeft += scrollValue;
   }, [scrollValue]);
+
+  useEffect(() => {
+    addToCart();
+  }, [items]);
 
   return (
     <div
@@ -34,6 +51,7 @@ function Row({ flag, data, scrollValue }) {
               <motion.div
                 whileTap={{ scale: 0.75 }}
                 className="w-8 h-8 rounded-full bg-orange-600 flex items-center justify-center cursor-pointer hover:shadow-md"
+                onClick={() => setItems([...cartItems, item])}
               >
                 <HiShoppingCart className="text-white" />
               </motion.div>
